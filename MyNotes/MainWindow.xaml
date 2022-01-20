@@ -1,0 +1,21 @@
+﻿<Window x:Class="MyNotes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyNotes"
+        mc:Ignorable="d"
+        Title="MyNotes" Height="700" Width="450">
+    <Window.Resources>
+        <ContextMenu x:Key="listMenu">
+            <MenuItem Header="Посмотреть описание"/>
+            <MenuItem Header="Удалить"/>
+        </ContextMenu>
+    </Window.Resources>
+    <Grid>
+        <ListBox SelectedItem="{Binding SelectNotes}"
+                 DisplayMemberPath="{Binding Name}"
+                 ContextMenu="{StaticResource listMenu}"
+                 MouseDoubleClick="OpenDescription"/>
+    </Grid>
+</Window>

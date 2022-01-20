@@ -1,0 +1,15 @@
+C:\Users\bobir\source\repos\MyNotes\MyNotes\bin\Debug\MyNotes.exe.config
+C:\Users\bobir\source\repos\MyNotes\MyNotes\bin\Debug\MyNotes.exe
+C:\Users\bobir\source\repos\MyNotes\MyNotes\bin\Debug\MyNotes.pdb
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes.csproj.AssemblyReference.cache
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MainWindow.g.cs
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\App.g.cs
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes_MarkupCompile.cache
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes_MarkupCompile.lref
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MainWindow.baml
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes.g.resources
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes.Properties.Resources.resources
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes.csproj.GenerateResource.cache
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes.csproj.CoreCompileInputs.cache
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes.exe
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes.pdb
