@@ -50,12 +50,21 @@ namespace MyNotes
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private void OpenDescription(object sender, MouseButtonEventArgs e)
         {
             Description win = new Description();
             win.ShowDialog();
+        }
+
+        private void AddNote(object sender, RoutedEventArgs e)
+        {
+            Notes.Add(new Notes
+            {
+                Name = "Новая задача"
+            });
         }
     }
 }

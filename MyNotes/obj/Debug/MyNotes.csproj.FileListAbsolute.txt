@@ -13,3 +13,4 @@ C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes.csproj.GenerateRes
 C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes.csproj.CoreCompileInputs.cache
 C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes.exe
 C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\MyNotes.pdb
+C:\Users\bobir\source\repos\MyNotes\MyNotes\obj\Debug\Description.g.cs

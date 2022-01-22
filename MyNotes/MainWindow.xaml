@@ -11,11 +11,14 @@
             <MenuItem Header="Посмотреть описание"/>
             <MenuItem Header="Удалить"/>
         </ContextMenu>
+        <ContextMenu x:Key="AddNotes">
+            <MenuItem Header="Добавить запись" Click="AddNote"/>
+        </ContextMenu>
     </Window.Resources>
     <Grid>
         <ListBox SelectedItem="{Binding SelectNotes}"
                  DisplayMemberPath="{Binding Name}"
-                 ContextMenu="{StaticResource listMenu}"
+                 ContextMenu="{StaticResource AddNotes}"
                  MouseDoubleClick="OpenDescription"/>
     </Grid>
 </Window>
