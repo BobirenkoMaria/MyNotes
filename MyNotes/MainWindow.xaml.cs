@@ -30,7 +30,7 @@ namespace MyNotes
             get => Data.Notes;
         }
 
-        public ObservableCollection<Notes> SelectNotes
+        public Notes SelectNotes
         {
             get => selectNote;
             set
