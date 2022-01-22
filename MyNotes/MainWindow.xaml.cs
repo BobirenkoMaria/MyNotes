@@ -23,7 +23,7 @@ namespace MyNotes
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        private Notes selectNote;
+        private Notes selectNotes;
 
         public ObservableCollection<Notes> Notes
         {
@@ -32,10 +32,10 @@ namespace MyNotes
 
         public Notes SelectNotes
         {
-            get => selectNote;
+            get => selectNotes;
             set
             {
-                selectNote = value;
+                selectNotes = value;
                 Signal();
             }
         }
@@ -53,18 +53,18 @@ namespace MyNotes
             DataContext = this;
         }
 
-        private void OpenDescription(object sender, MouseButtonEventArgs e)
-        {
-            Description win = new Description();
-            win.ShowDialog();
-        }
-
         private void AddNote(object sender, RoutedEventArgs e)
         {
             Notes.Add(new Notes
             {
                 Name = "Новая задача"
             });
+        }
+        
+        private void OpenDescription(object sender, MouseButtonEventArgs e)
+        {
+            Description win = new Description();
+            win.ShowDialog();
         }
     }
 }

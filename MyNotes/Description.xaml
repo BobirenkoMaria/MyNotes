@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="Description" Height="350" Width="500">
     <Grid>
-        
+        <StackPanel
+            DataContext="{Binding SelectedNote}">
+            <Label Content="Название" Margin="20 0"/>
+            <TextBox Text="{Binding Name}" Margin="20 0"/>
+            <Label Content="Описание" Margin="20 0"/>
+            <TextBox Text="{Binding Description}" Margin="20 0" Height="100" AcceptsReturn="True"/>
+            <Label Content="Дедлайн" Margin="20 0"/>
+            <DatePicker SelectedDate="{Binding DeadLine}" Margin="20 0"/>
+            <Label Content="Род занятия" Margin="20 0"/>
+            <ComboBox ItemsSource="{Binding Occupations}"
+                      SelectedItem="{Binding SelectedNote.Occupation}"
+                      DisplayMemberPath="Name" Margin="20 0">
+                <ComboBoxItem Content="Добавить занятие" Selected="OpenOccupation"/>
+            </ComboBox>
+        </StackPanel>
     </Grid>
 </Window>

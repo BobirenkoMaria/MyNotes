@@ -10,5 +10,6 @@ namespace MyNotes
     static class Data
     {
         public static ObservableCollection<Notes> Notes = new ObservableCollection<Notes>();
+        public static ObservableCollection<Occupation> Occupations = new ObservableCollection<Occupation>();
     }
 }

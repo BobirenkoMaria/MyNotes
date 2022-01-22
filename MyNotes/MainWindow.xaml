@@ -17,7 +17,8 @@
     </Window.Resources>
     <Grid>
         <ListBox SelectedItem="{Binding SelectNotes}"
-                 DisplayMemberPath="{Binding Name}"
+                 ItemsSource="{Binding Notes}"
+                 DisplayMemberPath="Name"
                  ContextMenu="{StaticResource AddNotes}"
                  MouseDoubleClick="OpenDescription"/>
     </Grid>
