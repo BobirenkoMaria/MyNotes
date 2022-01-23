@@ -8,6 +8,7 @@ namespace MyNotes
 {
     public class Occupation
     {
-        public string occupation { get; set; }
+        public string OccupationName { get; set; }
+        public string OccupatianDescription { get; set; }
     }
 }

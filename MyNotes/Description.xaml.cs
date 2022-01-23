@@ -22,6 +22,9 @@ namespace MyNotes
     /// </summary>
     public partial class Description : Window, INotifyPropertyChanged
     {
+
+        public string thisName, thisDescription;
+
         public Description()
         {
             InitializeComponent();
@@ -30,7 +33,7 @@ namespace MyNotes
 
         private Notes selectedNote;
 
-        public ObservableCollection<Notes> Notes
+        public ObservableCollection<Notes> notes
         {
             get => Data.Notes;
         }
@@ -61,5 +64,11 @@ namespace MyNotes
             Occupations win = new Occupations();
             win.ShowDialog();
         }
+
+        private void Save(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
     }
 }

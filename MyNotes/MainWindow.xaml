@@ -5,21 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyNotes"
         mc:Ignorable="d"
-        Title="MyNotes" Height="700" Width="450">
+        Title="MyNotes" Height="700" Width="450" FontFamily="Comic Sans MS">
     <Window.Resources>
         <ContextMenu x:Key="listMenu">
-            <MenuItem Header="Посмотреть описание"/>
-            <MenuItem Header="Удалить"/>
+            <MenuItem Header="Удалить" Click="DeleteNote"/>
         </ContextMenu>
-        <ContextMenu x:Key="AddNotes">
-            <MenuItem Header="Добавить запись" Click="AddNote"/>
-        </ContextMenu>
+        
     </Window.Resources>
     <Grid>
-        <ListBox SelectedItem="{Binding SelectNotes}"
+        <ListBox x:Name="listBox" 
+            SelectedItem="{Binding SelectNotes}"
                  ItemsSource="{Binding Notes}"
+                 ContextMenu="{StaticResource listMenu}"
                  DisplayMemberPath="Name"
-                 ContextMenu="{StaticResource AddNotes}"
-                 MouseDoubleClick="OpenDescription"/>
+                 MouseDoubleClick="OpenDescription" 
+                 Foreground="White" Background="Black" FontSize="36">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="60" Width="60" Click="AddNote" Margin="20" Content="+" FontSize="24">
+            <Button.Template>
+                <ControlTemplate>
+                    <Grid>
+                        <Ellipse Fill="#FF693500"/>
+                        <Label Content="+" HorizontalAlignment="Center" Margin="1 -11 0 0" FontSize="48" Foreground="White"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Window>

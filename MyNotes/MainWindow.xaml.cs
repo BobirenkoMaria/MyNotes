@@ -23,6 +23,7 @@ namespace MyNotes
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        
         private Notes selectNotes;
 
         public ObservableCollection<Notes> Notes
@@ -65,6 +66,18 @@ namespace MyNotes
         {
             Description win = new Description();
             win.ShowDialog();
+        }
+
+        private void DeleteNote(object sender, RoutedEventArgs e)
+        {
+            if (SelectNotes == null)
+                return;
+            if (MessageBox.Show("Действительно удалить выбраную задачу?",
+                "Предупреждение", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Notes.Remove(SelectNotes);
+                SelectNotes = null;
+            }
         }
     }
 }

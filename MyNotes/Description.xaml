@@ -5,22 +5,117 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyNotes"
         mc:Ignorable="d"
-        Title="Description" Height="350" Width="500">
-    <Grid>
+        Title="Description" Height="365" Width="500" FontFamily="Comic Sans MS">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="9" Background="#FF1B1B1B">
+                            <Grid>
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                              Margin="1"
+                                              BorderThickness="0"
+                                              Foreground="{TemplateBinding Foreground}"
+                                              IsTabStop="False"
+                                              Padding="{TemplateBinding Padding}" />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+        <ControlTemplate TargetType="Button" x:Key="SaveButton">
+            <Border CornerRadius="9" Background="#FF693500">
+                <Label Content="Сохранить" Foreground="White" Margin="0 -4"/>
+            </Border>
+        </ControlTemplate>
+        <Style TargetType="DatePickerTextBox">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="DatePicker">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DatePicker">
+                        <Grid Background="Black">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="PART_Button" Grid.Row="0" Grid.Column="1"
+                                        Content="📅"
+                                        Background="#FF1B1B1B"
+                                        Foreground="White" 
+                                        Width="20"
+                                        Margin="3 2" 
+                                        Focusable="False" 
+                                        VerticalAlignment="Top"
+                                        HorizontalAlignment="Left" />
+                            <DatePickerTextBox x:Name="PART_TextBox"
+                                            Grid.Row="0" Grid.Column="0" 
+                                            Background="#FF1B1B1B"
+                                            Foreground="White"
+                                            BorderThickness="1"
+                                            Text="Дата" MinHeight="20"
+                                            HorizontalContentAlignment="Stretch"
+                                            VerticalContentAlignment="Center" >
+                            </DatePickerTextBox>
+                            <Grid x:Name="PART_DisabledVisual" 
+                                      Opacity="0" 
+                                      IsHitTestVisible="False" 
+                                      Grid.Row="0" Grid.Column="0"
+                                      Grid.ColumnSpan="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Grid.Row="0" Grid.Column="0" RadiusX="1" RadiusY="1" Fill="#A5FFFFFF"/>
+                                <Rectangle Grid.Row="0" Grid.Column="1" RadiusX="1" RadiusY="1" Fill="#A5FFFFFF" Height="18" Width="19" Margin="3,0,3,0" />
+                                <Popup x:Name="PART_Popup" 
+                                           PlacementTarget="{Binding ElementName=PART_Button}"
+                                           Placement="Bottom" 
+                                           StaysOpen="False"
+                                           AllowsTransparency="True" />
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="{x:Type ComboBoxItem}" TargetType="ComboBoxItem">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBoxItem">
+                        <Border Name="Border" Padding="2" BorderThickness="1" SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="Black">
         <StackPanel
             DataContext="{Binding SelectedNote}">
-            <Label Content="Название" Margin="20 0"/>
-            <TextBox Text="{Binding Name}" Margin="20 0"/>
-            <Label Content="Описание" Margin="20 0"/>
+            <Label Content="Название" Margin="20 0" Foreground="White"/>
+            <TextBox Text="{Binding notes}" Margin="20,0,19.6,0" Height="25"/>
+            <Label Content="Описание" Margin="20 0" Foreground="White"/>
             <TextBox Text="{Binding Description}" Margin="20 0" Height="100" AcceptsReturn="True"/>
-            <Label Content="Дедлайн" Margin="20 0"/>
-            <DatePicker SelectedDate="{Binding DeadLine}" Margin="20 0"/>
-            <Label Content="Род занятия" Margin="20 0"/>
+            <Label Content="Дедлайн" Margin="20 0" Foreground="White"/>
+            <DatePicker SelectedDate="{Binding DeadLine}" Margin="20 0" Height="25"/>
+            <Label Content="Род занятия" Margin="20 0" Foreground="White"/>
             <ComboBox ItemsSource="{Binding Occupations}"
-                      SelectedItem="{Binding SelectedNote.Occupation}"
-                      DisplayMemberPath="Name" Margin="20 0">
+                      SelectedItem="{Binding SelectedNote}" DisplayMemberPath="Name" 
+                      ToolTip="{Binding OccupatianDescription}" Margin="20 0">
                 <ComboBoxItem Content="Добавить занятие" Selected="OpenOccupation"/>
             </ComboBox>
+            <Button Content="Сохранить" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20" Width="70" Height="20" Click="Save" Template="{StaticResource SaveButton}"/>
         </StackPanel>
     </Grid>
 </Window>

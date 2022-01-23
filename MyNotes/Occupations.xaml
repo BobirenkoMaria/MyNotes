@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyNotes"
         mc:Ignorable="d"
-        Title="Occupations" Height="200" Width="800">
-    <Grid>
-        
+        Title="Occupations" Height="255" Width="500" FontFamily="Comic Sans MS">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border CornerRadius="9" Background="#FF1B1B1B">
+                            <Grid>
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                              Margin="1"
+                                              BorderThickness="0"
+                                              Foreground="{TemplateBinding Foreground}"
+                                              IsTabStop="False"
+                                              Padding="{TemplateBinding Padding}" />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
+        <ControlTemplate TargetType="Button" x:Key="SaveButton">
+            <Border CornerRadius="9" Background="#FF693500">
+                <Label Content="Сохранить" Foreground="White" Margin="0 -4"/>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid Background="Black">
+        <StackPanel
+            DataContext="{Binding SelectedOccupation}">
+            <Label Content="Род занятия" Margin="20 0" Foreground="White"/>
+            <TextBox Text="{Binding OccupationName}" Margin="20 0"/>
+            <Label Content="Описание занятия" Margin="20 0" Foreground="White"/>
+            <TextBox Text="{Binding OccupatianDescription}" Margin="20 0" Height="100" AcceptsReturn="True"/>
+            <Button Content="Сохранить" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20" Width="70" Height="20" Template="{StaticResource SaveButton}"/>
+        </StackPanel>
     </Grid>
 </Window>
