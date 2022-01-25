@@ -41,7 +41,7 @@ namespace MyNotes
             }
         }
 
-        void Signal([CallerMemberName] string name = null)
+        public void Signal([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this,
                       new PropertyChangedEventArgs(name));
@@ -64,7 +64,7 @@ namespace MyNotes
         
         private void OpenDescription(object sender, MouseButtonEventArgs e)
         {
-            Description win = new Description();
+            Description win = new Description(SelectNotes);
             win.ShowDialog();
         }
 

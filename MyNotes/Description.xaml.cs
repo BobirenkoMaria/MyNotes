@@ -23,20 +23,16 @@ namespace MyNotes
     public partial class Description : Window, INotifyPropertyChanged
     {
 
-        public string thisName, thisDescription;
-
-        public Description()
+        public Description(Notes selectNotes)
         {
             InitializeComponent();
             DataContext = this;
+            selectedNote = selectNotes;
         }
 
         private Notes selectedNote;
 
-        public ObservableCollection<Notes> notes
-        {
-            get => Data.Notes;
-        }
+        
 
         public Notes SelectedNote
         {
@@ -52,7 +48,7 @@ namespace MyNotes
             get => Data.Occupations;
         }
 
-        void Signal([CallerMemberName] string name = null)
+        public void Signal([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this,
                       new PropertyChangedEventArgs(name));
@@ -69,6 +65,5 @@ namespace MyNotes
         {
             
         }
-
     }
 }

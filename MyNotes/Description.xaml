@@ -33,10 +33,6 @@
                 <Label Content="Сохранить" Foreground="White" Margin="0 -4"/>
             </Border>
         </ControlTemplate>
-        <Style TargetType="DatePickerTextBox">
-            <Setter Property="Background" Value="Black"/>
-            <Setter Property="Foreground" Value="White"/>
-        </Style>
         <Style TargetType="DatePicker">
             <Setter Property="Template">
                 <Setter.Value>
@@ -101,21 +97,23 @@
         </Style>
     </Window.Resources>
     <Grid Background="Black">
+        <StackPanel>
         <StackPanel
             DataContext="{Binding SelectedNote}">
             <Label Content="Название" Margin="20 0" Foreground="White"/>
-            <TextBox Text="{Binding notes}" Margin="20,0,19.6,0" Height="25"/>
+            <TextBox Text="{Binding Name}" Margin="20 0" Height="25"/>
             <Label Content="Описание" Margin="20 0" Foreground="White"/>
             <TextBox Text="{Binding Description}" Margin="20 0" Height="100" AcceptsReturn="True"/>
             <Label Content="Дедлайн" Margin="20 0" Foreground="White"/>
             <DatePicker SelectedDate="{Binding DeadLine}" Margin="20 0" Height="25"/>
+        </StackPanel>
+
             <Label Content="Род занятия" Margin="20 0" Foreground="White"/>
             <ComboBox ItemsSource="{Binding Occupations}"
-                      SelectedItem="{Binding SelectedNote}" DisplayMemberPath="Name" 
-                      ToolTip="{Binding OccupatianDescription}" Margin="20 0">
-                <ComboBoxItem Content="Добавить занятие" Selected="OpenOccupation"/>
-            </ComboBox>
-            <Button Content="Сохранить" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20" Width="70" Height="20" Click="Save" Template="{StaticResource SaveButton}"/>
+                      SelectedItem="{Binding SelectedNote.Occupation}" DisplayMemberPath="Name" 
+                      ToolTip="{Binding OccupatianDescription}" Margin="20 0"/>
+            <Button Content="Сохранить" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                    Margin="20" Width="70" Height="20" Click="Save" Template="{StaticResource SaveButton}"/>
         </StackPanel>
     </Grid>
 </Window>
